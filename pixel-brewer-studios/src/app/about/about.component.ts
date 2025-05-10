@@ -3,6 +3,7 @@ import { ExperienceComponent } from '../experience/experience.component';
 import { GalleryComponent } from '../gallery/gallery.component';
 import { ContactComponent } from '../contact/contact.component';
 import { SkillsComponent } from '../skills/skills.component';
+import { EducationComponent } from '../education/education.component';
 
 @Component({
   selector: 'app-about',
@@ -11,6 +12,7 @@ import { SkillsComponent } from '../skills/skills.component';
     GalleryComponent,
     ContactComponent,
     SkillsComponent,
+    EducationComponent,
   ],
   templateUrl: './about.component.html',
 })
