@@ -16,4 +16,6 @@ import { EducationComponent } from '../education/education.component';
   ],
   templateUrl: './about.component.html',
 })
-export class AboutComponent {}
+export class AboutComponent {
+  workLink: string = 'https://stcu.org/';
+}
