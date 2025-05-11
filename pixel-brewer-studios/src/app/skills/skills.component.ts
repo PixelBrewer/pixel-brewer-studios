@@ -5,4 +5,15 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './skills.component.html',
 })
-export class SkillsComponent {}
+export class SkillsComponent {
+  // Track active tab
+  activeTab: 'professional' | 'personal' = 'professional';
+
+  /**
+   * Switch between professional and personal skills tabs
+   * @param tabName The tab to activate: 'professional' or 'personal'
+   */
+  showTab(tabName: 'professional' | 'personal'): void {
+    this.activeTab = tabName;
+  }
+}
