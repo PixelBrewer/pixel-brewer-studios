@@ -5,4 +5,7 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './experience.component.html',
 })
-export class ExperienceComponent {}
+export class ExperienceComponent {
+  stcuLink: string = 'https://stcu.org/';
+  avistaLink: string = 'https://myavista.com/';
+}

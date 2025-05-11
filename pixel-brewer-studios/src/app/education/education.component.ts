@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './education.component.html',
 })
-export class EducationComponent {}
+export class EducationComponent {
+  whitworthLink: string = 'https://www.whitworth.edu/';
+}
