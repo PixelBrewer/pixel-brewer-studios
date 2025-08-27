@@ -6,4 +6,4 @@ All about myself. 🙂
 
 Simply run `npm install` to install dependencies, then `npm start` to start the development server.
 
-You may also visit the live site [here](someUrl).
+You may also visit the live site [here]("https://www.pixelbrewer.dev").
