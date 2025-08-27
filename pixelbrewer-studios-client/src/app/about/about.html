@@ -1,0 +1,66 @@
+<main class="max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+  <header class="mb-8">
+    <h2 class="text-3xl font-bold text-white tracking-tight sm:text-4xl">
+      About Me
+    </h2>
+    <div class="h-1 w-20 bg-indigo-500 mt-2"></div>
+    <!-- Accent line under heading -->
+  </header>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+    <!-- Left column for text content -->
+    <section class="lg:col-span-2 space-y-6">
+      <div>
+        <p class="text-lg text-white leading-relaxed">
+          I am your Pixel Brewer, or you can call me Alex. Currently I am
+          employed as a full stack software engineer by Spokane Teacher's Credit
+          Union <a href="{{ workLink }}" alt="Link to STCU">(STCU)</a>, one of
+          Washington State's largest credit unions.
+        </p>
+      </div>
+      <div>
+        <p class="text-lg text-white leading-relaxed">
+          I mainly code Angular apps, like this one, and .NET web api's with
+          some Azure functions as well. I take pride in creating clean,
+          maintainable applications that are able to help people achieve the
+          goals they set out to accomplish. Below you will find a list of my
+          past work experiences in chronological order, some skills I have
+          acquired over the years, my education, as well as a few of my hobbies
+          and interests.
+        </p>
+      </div>
+    </section>
+
+    <!-- Right column for profile image -->
+    <div class="flex justify-center lg:justify-end">
+      <div
+        class="relative w-76 h-98 overflow-hidden rounded-full shadow-lg border-4 border-gray-100"
+      >
+        <img
+          src="KendoSmall.jpg"
+          alt="Profile picture of me in kendo uniform."
+          class="w-full h-full object-cover"
+        />
+        <div
+          class="absolute inset-0 ring-4 ring-indigo-500 ring-opacity-20 rounded-full"
+        ></div>
+      </div>
+    </div>
+  </div>
+  <!-- Experience section stays below -->
+  <div class="mt-16">
+    <app-experience></app-experience>
+  </div>
+  <div class="mt-16">
+    <app-skills></app-skills>
+  </div>
+  <div class="mt-16">
+    <app-education></app-education>
+  </div>
+  <div class="mt-16">
+    <app-gallery></app-gallery>
+  </div>
+  <div class="mt-16">
+    <app-contact></app-contact>
+  </div>
+</main>
