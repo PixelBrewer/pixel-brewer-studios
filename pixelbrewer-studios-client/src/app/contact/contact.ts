@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './contact.html',
 })
 export class Contact {
-  email: string = 'pixelbrewerstudios@gmail.com';
+  email: string = 'pixelbrewer@protonmail.com';
   githubUrl: string = 'https://github.com/PixelBrewer';
   linkedInUrl: string = 'https://www.linkedin.com/in/alexanderjblair/';
 }
