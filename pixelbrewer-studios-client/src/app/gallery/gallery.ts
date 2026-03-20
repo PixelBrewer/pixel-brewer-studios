@@ -26,8 +26,13 @@ export class Gallery {
       title: 'Oliver (Ollie). 🐱🐶',
     },
     {
-      src: 'KendoMatch.jpg',
-      alt: 'My first kendo tournament.',
+      src: 'HighlineTourney2.jpeg',
+      alt: 'Kendo tournament action shot.',
+      title: 'Kendo ⚔️',
+    },
+    {
+      src: 'KendoProfilePic.jpeg',
+      alt: 'Kendo profile picture.',
       title: 'Kendo ⚔️',
     },
     {
