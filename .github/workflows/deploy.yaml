@@ -32,14 +32,14 @@ jobs:
       - name: Build Angular app
         run: npm run build
 
-      - name: Deploy to droplet
+      - name: Clear old files on droplet
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.DROPLET_IP }}
           username: ${{ secrets.DROPLET_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            sudo rm -rf /var/www/pixelbrewer/*
+            rm -rf /var/www/pixelbrewer/*
 
       - name: Copy files to droplet
         uses: appleboy/scp-action@v0.1.7
