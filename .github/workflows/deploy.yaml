@@ -12,6 +12,10 @@ jobs:
       run:
         working-directory: pixel-brewer-client
 
+    permissions:
+      contents: read
+      deployments: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -32,6 +36,14 @@ jobs:
       - name: Build Angular app
         run: npm run build
 
+      - name: Create GitHub deployment
+        uses: chrnorm/deployment-action@v2
+        id: deployment
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: production
+          initial-status: in_progress
+
       - name: Clear old files on droplet
         uses: appleboy/ssh-action@v1
         with:
@@ -50,3 +62,20 @@ jobs:
           source: "pixel-brewer-client/dist/pixel-brewer-client/browser/*"
           target: "/var/www/pixelbrewer"
           strip_components: 4
+
+      - name: Update deployment status (success)
+        if: success()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+          state: success
+          environment-url: https://www.pixelbrewer.dev
+
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+          state: failure
