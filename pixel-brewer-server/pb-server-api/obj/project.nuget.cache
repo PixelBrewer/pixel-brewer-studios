@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "6smRoKjfeJA=",
+  "success": true,
+  "projectFilePath": "/Users/alex/Projects/Github/pixel-brewer-studios/pixel-brewer-server/pb-server-api/pb-server-api.csproj",
+  "expectedPackageFiles": [
+    "/Users/alex/.nuget/packages/microsoft.aspnetcore.openapi/10.0.6/microsoft.aspnetcore.openapi.10.0.6.nupkg.sha512",
+    "/Users/alex/.nuget/packages/microsoft.openapi/2.0.0/microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
