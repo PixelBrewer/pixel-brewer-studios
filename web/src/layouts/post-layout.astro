@@ -1,0 +1,18 @@
+---
+import BaseLayout from "./base-layout.astro";
+
+const { title, description, published } = Astro.props;
+---
+
+<BaseLayout title={`${title} | PixelBrewer`}>
+  <article>
+    <header>
+      <h1>{title}</h1>
+      <p>{description}</p>
+      <time datetime={published.toISOString()}>
+        {published.toLocaleDateString()}
+      </time>
+    </header>
+    <slot />
+  </article>
+</BaseLayout>

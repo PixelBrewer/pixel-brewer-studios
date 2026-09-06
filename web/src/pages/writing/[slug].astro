@@ -1,6 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
-import BaseLayout from "../../layouts/base-layout.astro";
+import PostLayout from "../../layouts/post-layout.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("writing");
@@ -15,15 +15,10 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BaseLayout title={`${post.data.title} | PixelBrewer`}>
-  <article>
-    <h1>{post.data.title}</h1>
-    <p>{post.data.description}</p>
-
-    <time datetime={post.data.published.toISOString()}>
-      {post.data.published.toLocaleDateString()}
-    </time>
-
-    <Content />
-  </article>
-</BaseLayout>
+<PostLayout
+  title={post.data.title}
+  description={post.data.description}
+  published={post.data.published}
+>
+  <Content />
+</PostLayout>
