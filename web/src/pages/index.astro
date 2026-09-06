@@ -6,7 +6,8 @@ const featuredProjects = (await getCollection("projects"))
   .filter((project) => project.data.featured);
 
 const latestPosts = (await getCollection("writing"))
-  .sort((a,b) => b.data.published.getTime() - a.data.published.getTime()).slice(0,4);
+  .sort((a,b) => b.data.published.getTime() - a.data.published.getTime())
+  .slice(0,4);
 ---
 
 <BaseLayout title="PixelBrewer">
