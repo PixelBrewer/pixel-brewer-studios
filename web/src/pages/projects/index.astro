@@ -6,18 +6,38 @@ const projects = await getCollection("projects");
 ---
 
 <BaseLayout title="Projects | PixelBrewer">
-  <h1>Projects</h1>
+  <section class="mb-10">
+    <h1 class="text-4xl font-bold tracking-tight text-ctp-text">
+      Projects
+    </h1>
 
-  <ul>
+    <p class="mt-4 max-w-2xl text-lg leading-relaxed text-ctp-subtext0">
+      Things I'm building, exploring, and learning from.
+    </p>
+  </section>
+
+  <ul class="space-y-10">
     {
       projects.map((project) => (
         <li>
-          <h2>
-            <a href={`/projects/${project.id}`}>{project.data.title}
-            </a>
-          </h2>
-          <p>{project.data.description}</p>
-          <p>{project.data.status}</p>
+          <div class="flex items-baseline justify-between gap-4">
+            <h2 class="text-xl font-semibold">
+              <a
+                href={`/projects/${project.id}`}
+                class="text-ctp-blue transition-colors hover:text-ctp-sapphire"
+              >
+                {project.data.title}
+              </a>
+            </h2>
+
+            <span class="text-sm text-ctp-sapphire">
+              {project.data.status}
+            </span>
+          </div>
+
+          <p class="mt-2 max-w-2xl leading-relaxed text-ctp-subtext0">
+            {project.data.description}
+          </p>
         </li>
       ))
     }

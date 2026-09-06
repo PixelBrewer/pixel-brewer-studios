@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@import "@catppuccin/tailwindcss/mocha.css";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+
+  line-height: 1.6;
+}
+
+a {
+  text-underline-offset: 0.2em;
+}
+
+.article-content {
+  color: var(--color-ctp-subtext0);
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+.article-content p {
+  margin-top: 1.5rem;
+}

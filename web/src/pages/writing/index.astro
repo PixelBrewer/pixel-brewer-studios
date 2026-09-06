@@ -3,21 +3,46 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/base-layout.astro";
 
 const posts = (await getCollection("writing"))
-  .sort((a,b) => b.data.published.getTime() - a.data.published.getTime());
+  .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
 ---
 
 <BaseLayout title="Writing | PixelBrewer">
-  <h1>Writing</h1>
+  <section class="mb-10">
+    <h1 class="text-4xl font-bold tracking-tight text-ctp-text">
+      Writing
+    </h1>
 
-  <ul>
+    <p class="mt-4 max-w-2xl text-lg leading-relaxed text-ctp-subtext0">
+      Notes on programming, projects, games, tools, and whatever else I'm
+      learning along the way.
+    </p>
+  </section>
+
+  <ul class="space-y-10">
     {
       posts.map((post) => (
         <li>
-      <h2><a href={`/writing/${post.id}`}>{post.data.title}</a></h2>
-          <p>{post.data.description}</p>
-          <time datetime={post.data.published.toISOString()}>
-            {post.data.published.toLocaleDateString()}
-          </time>
+          <div class="flex items-baseline justify-between gap-4">
+            <h2 class="text-xl font-semibold">
+              <a
+                href={`/writing/${post.id}`}
+                class="text-ctp-blue transition-colors hover:text-ctp-sapphire"
+              >
+                {post.data.title}
+              </a>
+            </h2>
+
+            <time
+              datetime={post.data.published.toISOString()}
+              class="shrink-0 text-sm text-ctp-overlay1"
+            >
+              {post.data.published.toLocaleDateString()}
+            </time>
+          </div>
+
+          <p class="mt-2 max-w-2xl leading-relaxed text-ctp-subtext0">
+            {post.data.description}
+          </p>
         </li>
       ))
     }

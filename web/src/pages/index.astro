@@ -6,64 +6,109 @@ const featuredProjects = (await getCollection("projects"))
   .filter((project) => project.data.featured);
 
 const latestPosts = (await getCollection("writing"))
-  .sort((a,b) => b.data.published.getTime() - a.data.published.getTime())
-  .slice(0,4);
+  .sort((a, b) => b.data.published.getTime() - a.data.published.getTime())
+  .slice(0, 4);
 ---
 
 <BaseLayout title="PixelBrewer">
-  <section>
-    <h1>Alex Blair</h1>
-    <p>
+  <section class="mb-20">
+    <h1 class="text-4xl font-bold tracking-tight text-ctp-text">
+      Alex Blair
+    </h1>
+
+    <p class="mt-4 max-w-2xl text-lg leading-relaxed text-ctp-subtext0">
       Software developer building things and learning how they work along the way.
     </p>
   </section>
 
-  <section>
-    <h2>Currently building</h2>
+  <section class="mb-20">
+    <div class="mb-6 flex items-center gap-4">
+      <h2 class="text-xl font-semibold text-ctp-text">
+        Currently building
+      </h2>
 
-    <ul>
+      <div class="h-px flex-1 bg-ctp-surface0"></div>
+    </div>
+
+    <ul class="space-y-8">
       {
         featuredProjects.map((project) => (
           <li>
-            <h3>
-              <a href={`/projects/${project.id}`}>
-                {project.data.title}
-              </a>
-            </h3>
+            <div class="flex items-baseline justify-between gap-4">
+              <h3 class="text-lg font-medium">
+                <a
+                  href={`/projects/${project.id}`}
+                  class="text-ctp-blue transition-colors hover:text-ctp-sapphire"
+                >
+                  {project.data.title}
+                </a>
+              </h3>
 
-            <p>{project.data.description}</p>
-            <p>{project.data.status}</p>
+              <span class="text-sm text-ctp-sapphire">
+                {project.data.status}
+              </span>
+            </div>
+
+            <p class="mt-2 leading-relaxed text-ctp-subtext0">
+              {project.data.description}
+            </p>
           </li>
         ))
       }
     </ul>
 
-    <a href="/projects">All projects</a>
+    <a
+      href="/projects"
+      class="mt-8 inline-block text-sm text-ctp-blue transition-colors hover:text-ctp-sapphire"
+    >
+      All projects →
+    </a>
   </section>
 
   <section>
-    <h2>Latest writing</h2>
+    <div class="mb-6 flex items-center gap-4">
+      <h2 class="text-xl font-semibold text-ctp-text">
+        Latest writing
+      </h2>
 
-    <ul>
+      <div class="h-px flex-1 bg-ctp-surface0"></div>
+    </div>
+
+    <ul class="space-y-8">
       {
         latestPosts.map((post) => (
           <li>
-            <h3>
-              <a href={`/writing/${post.id}`}>
-                {post.data.title}
-              </a>
-            </h3>
+            <div class="flex items-baseline justify-between gap-4">
+              <h3 class="text-lg font-medium">
+                <a
+                  href={`/writing/${post.id}`}
+                  class="text-ctp-blue transition-colors hover:text-ctp-sapphire"
+                >
+                  {post.data.title}
+                </a>
+              </h3>
 
-            <p>{post.data.description}</p>
+              <time
+                datetime={post.data.published.toISOString()}
+                class="text-sm text-ctp-overlay1"
+              >
+                {post.data.published.toLocaleDateString()}
+              </time>
+            </div>
 
-            <time datetime={post.data.published.toISOString()}>
-              {post.data.published.toLocaleDateString()}
-            </time>
+            <p class="mt-2 leading-relaxed text-ctp-subtext0">
+              {post.data.description}
+            </p>
           </li>
         ))
       }
     </ul>
 
-    <a href="/writing">All writing</a>
+    <a
+      href="/writing"
+      class="mt-8 inline-block text-sm text-ctp-blue transition-colors hover:text-ctp-sapphire"
+    >
+      All writing →
+    </a>
   </section>
 </BaseLayout>

@@ -3,37 +3,46 @@ import BaseLayout from "../layouts/base-layout.astro";
 ---
 
 <BaseLayout title="About | PixelBrewer">
-  <article>
-    <header>
-      <h1>About</h1>
+  <article class="max-w-2xl">
+    <header class="mb-10">
+      <h1 class="text-4xl font-bold tracking-tight text-ctp-text">
+        About
+      </h1>
     </header>
 
-    <p>
-      I'm Alex Blair, a software developer who enjoys building things,
-      learning how systems work, and following curiosity into projects that
-      are probably more complicated than they need to be.
-    </p>
+    <div class="space-y-6 text-lg leading-relaxed text-ctp-subtext0">
+      <p>
+        I'm Alex Blair, a software developer who enjoys building things,
+        learning how systems work, and following curiosity into projects that
+        are probably more complicated than they need to be.
+      </p>
 
-    <p>
-      I spend a lot of my time exploring C++, game development, graphics,
-      backend systems, developer tooling, and Linux. I especially like
-      projects that give me an excuse to understand what is happening under
-      the hood rather than treating technology as a black box.
-    </p>
+      <p>
+        I spend a lot of my time exploring C++, game development, graphics,
+        backend systems, developer tooling, and Linux. I especially like
+        projects that give me an excuse to understand what is happening under
+        the hood rather than treating technology as a black box.
+      </p>
 
-    <p>
-      Outside of programming, I'm usually drinking coffee, playing strategy
-      games, practicing kendo, skiing, or spending time with my cats.
-    </p>
+      <p>
+        Outside of programming, I'm usually drinking coffee, playing strategy
+        games, practicing kendo, skiing, or spending time with my cats.
+      </p>
 
-    <p>
-      PixelBrewer is where I write about what I'm learning, document projects
-      I'm working on, and share the things I find interesting along the way.
-    </p>
+      <p>
+        PixelBrewer is where I write about what I'm learning, document projects
+        I'm working on, and share the things I find interesting along the way.
+      </p>
 
-    <p>
-      You can find more of my work on
-      <a href="https://github.com/PixelBrewer">GitHub</a>.
-    </p>
+      <p>
+        You can find more of my work on{" "}
+        <a
+          href="https://github.com/PixelBrewer"
+          class="font-medium text-ctp-blue underline decoration-ctp-surface1 underline-offset-4 transition-colors hover:text-ctp-sapphire hover:decoration-ctp-sapphire"
+        >
+          GitHub
+        </a>.
+      </p>
+    </div>
   </article>
 </BaseLayout>
