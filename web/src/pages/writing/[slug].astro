@@ -1,0 +1,29 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/base-layout.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("writing");
+
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={`${post.data.title} | PixelBrewer`}>
+  <article>
+    <h1>{post.data.title}</h1>
+    <p>{post.data.description}</p>
+
+    <time datetime={post.data.published.toISOString()}>
+      {post.data.published.toLocaleDateString()}
+    </time>
+
+    <Content />
+  </article>
+</BaseLayout>
