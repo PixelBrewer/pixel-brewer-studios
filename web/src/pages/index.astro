@@ -1,17 +1,68 @@
 ---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/base-layout.astro";
 
+const featuredProjects = (await getCollection("projects"))
+  .filter((project) => project.data.featured);
+
+const latestPosts = (await getCollection("writing"))
+  .sort((a,b) => b.data.published.getTime() - a.data.published.getTime()).slice(0,4);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="PixelBrewer">
+  <section>
+    <h1>Alex Blair</h1>
+    <p>
+      Software developer building things and learning how they work along the way.
+    </p>
+  </section>
+
+  <section>
+    <h2>Currently building</h2>
+
+    <ul>
+      {
+        featuredProjects.map((project) => (
+          <li>
+            <h3>
+              <a href={`/projects/${project.id}`}>
+                {project.data.title}
+              </a>
+            </h3>
+
+            <p>{project.data.description}</p>
+            <p>{project.data.status}</p>
+          </li>
+        ))
+      }
+    </ul>
+
+    <a href="/projects">All projects</a>
+  </section>
+
+  <section>
+    <h2>Latest writing</h2>
+
+    <ul>
+      {
+        latestPosts.map((post) => (
+          <li>
+            <h3>
+              <a href={`/writing/${post.id}`}>
+                {post.data.title}
+              </a>
+            </h3>
+
+            <p>{post.data.description}</p>
+
+            <time datetime={post.data.published.toISOString()}>
+              {post.data.published.toLocaleDateString()}
+            </time>
+          </li>
+        ))
+      }
+    </ul>
+
+    <a href="/writing">All writing</a>
+  </section>
+</BaseLayout>
