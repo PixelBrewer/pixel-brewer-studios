@@ -42,6 +42,18 @@ jobs:
           environment: production
           initial-status: in_progress
 
+      - name: Clear existing site
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.DROPLET_IP }}
+          username: ${{ secrets.DROPLET_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            find /var/www/pixelbrewer \
+              -mindepth 1 \
+              -maxdepth 1 \
+              -exec rm -rf -- {} +
+
       - name: Deploy Astro site
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -51,7 +63,6 @@ jobs:
           source: "web/dist/*"
           target: "/var/www/pixelbrewer"
           strip_components: 2
-          rm: true
 
       - name: Update deployment status
         if: always()
