@@ -8,9 +8,10 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     defaults:
       run:
-        working-directory: pixel-brewer-client
+        working-directory: web
 
     permissions:
       contents: read
@@ -25,15 +26,12 @@ jobs:
         with:
           node-version: "22"
           cache: "npm"
-          cache-dependency-path: "pixel-brewer-client/package-lock.json"
-
-      - name: Enable corepack
-        run: corepack enable
+          cache-dependency-path: "web/package-lock.json"
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Angular app
+      - name: Build Astro site
         run: npm run build
 
       - name: Create GitHub deployment
@@ -44,38 +42,22 @@ jobs:
           environment: production
           initial-status: in_progress
 
-      - name: Clear old files on droplet
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.DROPLET_IP }}
-          username: ${{ secrets.DROPLET_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            rm -rf /var/www/pixelbrewer/*
-
-      - name: Copy files to droplet
+      - name: Deploy Astro site
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.DROPLET_IP }}
           username: ${{ secrets.DROPLET_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "pixel-brewer-client/dist/pixel-brewer-client/browser/*"
+          source: "web/dist/*"
           target: "/var/www/pixelbrewer"
-          strip_components: 4
+          strip_components: 2
+          rm: true
 
-      - name: Update deployment status (success)
-        if: success()
+      - name: Update deployment status
+        if: always()
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           deployment-id: ${{ steps.deployment.outputs.deployment_id }}
-          state: success
-          environment-url: https://www.pixelbrewer.dev
-
-      - name: Update deployment status (failure)
-        if: failure()
-        uses: chrnorm/deployment-status@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
-          state: failure
+          state: ${{ job.status }}
+          environment-url: https://pixelbrewer.dev
