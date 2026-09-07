@@ -1,6 +1,6 @@
 ---
 title: "Me in all my Kendo gear"
-image: "./kendo-profile.jpeg"
+image: "./KendoProfilePic.jpeg"
 alt: "Me in all my Kendo gear"
 caption: "Me in all my Kendo gear"
 date: 2026-09-06
