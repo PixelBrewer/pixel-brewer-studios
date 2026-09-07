@@ -20,7 +20,9 @@ const { title = "PixelBrewer" } = Astro.props;
 
     <body class="min-h-screen bg-ctp-base text-ctp-text">
         <div class="mx-auto flex min-h-screen max-w-3xl flex-col px-6">
-            <header class="flex items-center justify-between py-8">
+            <header
+                class="flex flex-col items-start gap-5 py-8 sm:flex-row sm:items-center sm:justify-between"
+            >
                 <a
                     href="/"
                     class="flex items-center gap-2 font-semibold text-ctp-text transition-colors hover:text-ctp-blue"
@@ -34,14 +36,16 @@ const { title = "PixelBrewer" } = Astro.props;
 
                     <span>PixelBrewer</span>
                 </a>
-                <nav class="flex gap-6 text-sm">
+
+                <nav
+                    class="flex w-full flex-wrap gap-x-6 gap-y-3 text-sm sm:w-auto"
+                >
                     <a href="/writing">Writing</a>
                     <a href="/projects">Projects</a>
                     <a href="/about">About</a>
                     <a href="/gallery">Gallery</a>
                 </nav>
             </header>
-
             <main class="flex-1 py-12">
                 <slot />
             </main>
