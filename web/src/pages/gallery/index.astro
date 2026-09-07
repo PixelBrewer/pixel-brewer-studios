@@ -1,0 +1,52 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/base-layout.astro";
+
+const photos = (await getCollection("gallery")).sort(
+    (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+---
+
+<BaseLayout title="Gallery | PixelBrewer">
+    <section class="mb-10">
+        <h1 class="text-4xl font-bold tracking-tight text-ctp-text">Gallery</h1>
+
+        <p class="mt-4 max-w-2xl text-lg leading-relaxed text-ctp-subtext0">
+            Kendo, skiing, coffee, cats, and other things I enjoy away from the
+            keyboard.
+        </p>
+    </section>
+
+    <div class="grid gap-8 sm:grid-cols-2">
+        {
+            photos.map((photo) => (
+                <figure>
+                    <img
+                        src={photo.data.image}
+                        alt={photo.data.alt}
+                        class="aspect-square w-full object-cover"
+                        loading="lazy"
+                    />
+
+                    <figcaption class="mt-3">
+                        <div class="flex items-baseline justify-between gap-4">
+                            <p class="font-medium text-ctp-text">
+                                {photo.data.title}
+                            </p>
+
+                            <time class="text-sm text-ctp-overlay1">
+                                {photo.data.date.toLocaleDateString()}
+                            </time>
+                        </div>
+
+                        {photo.data.caption && (
+                            <p class="mt-1 text-sm leading-relaxed text-ctp-subtext0">
+                                {photo.data.caption}
+                            </p>
+                        )}
+                    </figcaption>
+                </figure>
+            ))
+        }
+    </div>
+</BaseLayout>

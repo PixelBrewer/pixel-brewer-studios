@@ -5,36 +5,36 @@ const { title, description, status, repository } = Astro.props;
 ---
 
 <BaseLayout title={`${title} | PixelBrewer`}>
-  <article class="max-w-2xl">
-    <header class="mb-12">
-      <div class="flex items-baseline justify-between gap-4">
-        <h1 class="text-4xl font-bold tracking-tight text-ctp-text">
-          {title}
-        </h1>
+    <article class="max-w-2xl">
+        <header class="mb-12">
+            <div class="flex items-baseline justify-between gap-4">
+                <h1 class="text-4xl font-bold tracking-tight text-ctp-text">
+                    {title}
+                </h1>
 
-        <span class="text-sm text-ctp-sapphire">
-          {status}
-        </span>
-      </div>
+                <span class="text-sm text-ctp-sapphire">
+                    {status}
+                </span>
+            </div>
 
-      <p class="mt-4 text-lg leading-relaxed text-ctp-subtext0">
-        {description}
-      </p>
+            <p class="mt-4 text-lg leading-relaxed text-ctp-subtext0">
+                {description}
+            </p>
 
-      {
-        repository && (
-          <a
-            href={repository}
-            class="mt-4 inline-block text-sm font-medium text-ctp-blue underline decoration-ctp-surface1 underline-offset-4 transition-colors hover:text-ctp-sapphire hover:decoration-ctp-sapphire"
-          >
-            View repository
-          </a>
-        )
-      }
-    </header>
+            {
+                repository && (
+                    <a
+                        href={repository}
+                        class="mt-4 inline-block text-sm font-medium text-ctp-blue underline decoration-ctp-surface1 underline-offset-4 transition-colors hover:text-ctp-sapphire hover:decoration-ctp-sapphire"
+                    >
+                        View repository
+                    </a>
+                )
+            }
+        </header>
 
-    <div class="article-content">
-      <slot />
-    </div>
-  </article>
+        <div class="article-content">
+            <slot />
+        </div>
+    </article>
 </BaseLayout>

@@ -11,4 +11,4 @@ a lot of wires. Maki simplifies that and bootstraps directories, a CMakeLists.tx
 initial build. That way you can get to writing code much quicker. 
 
 This project is hosted on GitHub via the repository link and it can be downloaded for Mac users via Homebrew. Please see the README.md
-in the repository for instructions. 
+in the repository for instructions.

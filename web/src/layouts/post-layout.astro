@@ -5,26 +5,26 @@ const { title, description, published } = Astro.props;
 ---
 
 <BaseLayout title={`${title} | PixelBrewer`}>
-  <article class="max-w-2xl">
-    <header class="mb-12">
-      <h1 class="text-4xl font-bold tracking-tight text-ctp-text">
-        {title}
-      </h1>
+    <article class="max-w-2xl">
+        <header class="mb-12">
+            <h1 class="text-4xl font-bold tracking-tight text-ctp-text">
+                {title}
+            </h1>
 
-      <p class="mt-4 text-lg leading-relaxed text-ctp-subtext0">
-        {description}
-      </p>
+            <p class="mt-4 text-lg leading-relaxed text-ctp-subtext0">
+                {description}
+            </p>
 
-      <time
-        datetime={published.toISOString()}
-        class="mt-4 block text-sm text-ctp-overlay1"
-      >
-        {published.toLocaleDateString()}
-      </time>
-    </header>
+            <time
+                datetime={published.toISOString()}
+                class="mt-4 block text-sm text-ctp-overlay1"
+            >
+                {published.toLocaleDateString()}
+            </time>
+        </header>
 
-    <div class="article-content">
-      <slot />
-    </div>
-  </article>
+        <div class="article-content">
+            <slot />
+        </div>
+    </article>
 </BaseLayout>
