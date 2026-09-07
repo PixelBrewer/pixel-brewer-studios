@@ -34,14 +34,15 @@ const gallery = defineCollection({
     pattern: "**/*.md",
     base: "./src/content/gallery",
   }),
-  schema: z.object({
-    title: z.string(),
-    image: z.string(),
-    alt: z.string(),
-    caption: z.string().optional(),
-    date: z.date(),
-    category: z.enum(["kendo", "skiing", "coffee", "cats"]),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      image: image(),
+      alt: z.string(),
+      caption: z.string().optional(),
+      date: z.date(),
+      category: z.enum(["kendo", "skiing", "coffee", "cats"]),
+    }),
 });
 
 export const collections = {
