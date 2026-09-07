@@ -1,58 +1,132 @@
 ---
 import "../styles/global.css";
+import { siGithub, siMastodon, siX } from "simple-icons";
 
 const { title = "PixelBrewer" } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" class="mocha">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{title}</title>
+    </head>
 
-  <body class="min-h-screen bg-ctp-base text-ctp-text">
-    <div class="mx-auto flex min-h-screen max-w-3xl flex-col px-6">
-      <header class="flex items-center justify-between py-8">
-        <a
-          href="/"
-          class="font-semibold text-ctp-text transition-colors hover:text-ctp-blue"
-        >
-          PixelBrewer
-        </a>
+    <body class="min-h-screen bg-ctp-base text-ctp-text">
+        <div class="mx-auto flex min-h-screen max-w-3xl flex-col px-6">
+            <header class="flex items-center justify-between py-8">
+                <a
+                    href="/"
+                    class="font-semibold text-ctp-text transition-colors hover:text-ctp-blue"
+                >
+                    PixelBrewer
+                </a>
 
-        <nav class="flex gap-6 text-sm">
-          <a
-            href="/writing"
-            class="text-ctp-subtext0 transition-colors hover:text-ctp-blue"
-          >
-            Writing
-          </a>
+                <nav class="flex gap-6 text-sm">
+                    <a
+                        href="/writing"
+                        class="text-ctp-subtext0 transition-colors hover:text-ctp-blue"
+                    >
+                        Writing
+                    </a>
 
-          <a
-            href="/projects"
-            class="text-ctp-subtext0 transition-colors hover:text-ctp-blue"
-          >
-            Projects
-          </a>
+                    <a
+                        href="/projects"
+                        class="text-ctp-subtext0 transition-colors hover:text-ctp-blue"
+                    >
+                        Projects
+                    </a>
 
-          <a
-            href="/about"
-            class="text-ctp-subtext0 transition-colors hover:text-ctp-blue"
-          >
-            About
-          </a>
-        </nav>
-      </header>
+                    <a
+                        href="/about"
+                        class="text-ctp-subtext0 transition-colors hover:text-ctp-blue"
+                    >
+                        About
+                    </a>
+                </nav>
+            </header>
 
-      <main class="flex-1 py-12">
-        <slot />
-      </main>
+            <main class="flex-1 py-12">
+                <slot />
+            </main>
+            <footer
+                class="flex items-center justify-between border-t border-ctp-surface0 py-8 text-sm text-ctp-overlay1"
+            >
+                <p>Built by Alex Blair.</p>
 
-      <footer class="border-t border-ctp-surface0 py-8 text-sm text-ctp-overlay1">
-        <p>Built by Alex Blair.</p>
-      </footer>
-    </div>
-  </body>
+                <nav aria-label="Social links" class="flex items-center gap-4">
+                    <a
+                        href="https://github.com/PixelBrewer"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub"
+                        title="GitHub"
+                        class="transition-colors hover:text-ctp-blue"
+                    >
+                        <svg
+                            viewBox="0 0 24 24"
+                            class="size-5 fill-current"
+                            aria-hidden="true"
+                        >
+                            <path d={siGithub.path}></path>
+                        </svg>
+                    </a>
+
+                    <a
+                        href="https://www.linkedin.com/in/alexanderjblair/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="LinkedIn"
+                        title="LinkedIn"
+                        class="transition-colors hover:text-ctp-blue"
+                    >
+                        <svg
+                            viewBox="0 0 24 24"
+                            class="size-5 fill-current"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9H7.12v11.452z"
+                            ></path>
+                        </svg>
+                    </a>
+
+                    <a
+                        href="https://mastodon.social/@Pixelbrewer"
+                        target="_blank"
+                        rel="me noopener noreferrer"
+                        aria-label="Mastodon"
+                        title="Mastodon"
+                        class="transition-colors hover:text-ctp-blue"
+                    >
+                        <svg
+                            viewBox="0 0 24 24"
+                            class="size-5 fill-current"
+                            aria-hidden="true"
+                        >
+                            <path d={siMastodon.path}></path>
+                        </svg>
+                    </a>
+
+                    <a
+                        href="https://x.com/PixlBrewer"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="X"
+                        title="X"
+                        class="transition-colors hover:text-ctp-blue"
+                    >
+                        <svg
+                            viewBox="0 0 24 24"
+                            class="size-5 fill-current"
+                            aria-hidden="true"
+                        >
+                            <path d={siX.path}></path>
+                        </svg>
+                    </a>
+                </nav>
+            </footer>
+        </div>
+    </body>
 </html>
