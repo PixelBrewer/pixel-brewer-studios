@@ -1,0 +1,88 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 32 32"
+  shape-rendering="crispEdges"
+>
+  <!-- Steam -->
+  <path
+    fill="#a6adc8"
+    d="
+      M9 2h2v3H9v2H7V4h2V2z
+      M15 1h2v3h-2v3h2v3h-2V7h-2V4h2V1z
+      M21 3h2v3h-2v2h-2V5h2V3z
+    "
+  />
+
+  <!-- Mug outline -->
+  <path
+    fill="#313244"
+    d="
+      M5 11h19v2h3v2h2v8h-2v2h-3v3H5z
+    "
+  />
+
+  <!-- Mug body -->
+  <path
+    fill="#f5e0c3"
+    d="
+      M7 13h15v12H7z
+    "
+  />
+
+  <!-- Mug highlight -->
+  <path
+    fill="#f2d5cf"
+    d="
+      M7 13h2v10H7z
+    "
+  />
+
+  <!-- Coffee -->
+  <path
+    fill="#6f4e37"
+    d="
+      M7 12h15v3H7z
+    "
+  />
+
+  <!-- Coffee highlight -->
+  <path
+    fill="#a66a45"
+    d="
+      M9 13h3v1H9z
+      M17 13h3v1h-3z
+    "
+  />
+
+  <!-- Handle -->
+  <path
+    fill="#f5e0c3"
+    d="
+      M24 15h3v8h-3v-2h1v-4h-1z
+    "
+  />
+
+  <!-- Mug bottom shading -->
+  <path
+    fill="#c6b7a7"
+    d="
+      M7 24h15v2H7z
+    "
+  />
+
+  <!-- Coffee bean -->
+  <path
+    fill="#6f4e37"
+    d="
+      M12 17h2v-1h3v1h2v4h-2v1h-3v-1h-2z
+    "
+  />
+
+  <!-- Coffee bean center -->
+  <path
+    fill="#f5e0c3"
+    d="
+      M16 17h1v2h-1v1h-1v2h-1v-2h1v-1h1z
+    "
+  />
+</svg>

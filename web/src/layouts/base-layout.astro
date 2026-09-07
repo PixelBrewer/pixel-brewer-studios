@@ -10,6 +10,11 @@ const { title = "PixelBrewer" } = Astro.props;
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="/icons/pixelbrewer-mug.svg"
+        />
         <title>{title}</title>
     </head>
 
@@ -18,11 +23,17 @@ const { title = "PixelBrewer" } = Astro.props;
             <header class="flex items-center justify-between py-8">
                 <a
                     href="/"
-                    class="font-semibold text-ctp-text transition-colors hover:text-ctp-blue"
+                    class="flex items-center gap-2 font-semibold text-ctp-text transition-colors hover:text-ctp-blue"
                 >
-                    PixelBrewer
-                </a>
+                    <img
+                        src="/icons/pixelbrewer-mug.svg"
+                        alt=""
+                        class="size-9"
+                        aria-hidden="true"
+                    />
 
+                    <span>PixelBrewer</span>
+                </a>
                 <nav class="flex gap-6 text-sm">
                     <a
                         href="/writing"
