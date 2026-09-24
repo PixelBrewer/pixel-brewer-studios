@@ -1,7 +1,7 @@
 ---
 title: "Maki"
 description: "A small CLI tool that bootstraps C++ projects on the command line using CMake, Ninja, and Clang++."
-status: "active"
+status: "complete"
 featured: true
 repository: "https://github.com/PixelBrewer/Maki"
 ---
